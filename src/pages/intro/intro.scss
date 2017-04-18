@@ -1,0 +1,26 @@
+.ios,
+.md {
+    page-intro {
+        p {
+            color: #fff;
+            margin: 0px 10px 0px 10px;
+        }
+        h3 {
+            color: #fff;
+            margin: 0px 10px 30px 10px;
+            font-family: serif;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        ion-slide {
+            background-color: #333333;
+        }
+        ion-slide img {
+            height: 60vh !important;
+            width: auto !important;
+        }
+        ion-content {
+            background-color: #333333!important;
+        }
+    }
+}

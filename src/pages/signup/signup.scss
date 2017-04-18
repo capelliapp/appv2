@@ -1,0 +1,43 @@
+page-signup {
+    .logo {
+        margin-top: 20px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .introText {
+        width: 100%;
+        text-align: center;
+        margin-top: 10rem;
+    }
+    p {
+        color: #482F32;
+        font-size: 1.5em;
+    }
+    p.helptext {
+        font-size: 1.0em!important;
+    }
+    h2 {
+        color: #482F32;
+    }
+    ion-list {
+        margin-top: 5rem!important;
+    }
+    .forgot-password,
+    a {
+        margin-top: 30px;
+        text-align: center;
+        color: #482F32;
+        font-size: 1.0em;
+    }
+    button {
+        margin-top: 30px!important;
+        ;
+    }
+    .invalid {
+        border-bottom: 1px solid red;
+    }
+    .error-message {
+        text-align: center;
+        color: red;
+    }
+}

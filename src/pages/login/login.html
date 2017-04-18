@@ -1,0 +1,26 @@
+<ion-content padding>
+    <div class="logo">
+        <img width="60%" src="assets/img/logo-dark.png" />
+    </div>
+    <div *ngIf="requireLogin">
+        <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+            <ion-item [class.error]="!username.valid && username.touched">
+                <ion-label primary floating>Username</ion-label>
+                <ion-input type="email" [formControl]="username"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label primary floating>Password</ion-label>
+                <ion-input type="password" [formControl]="password"></ion-input>
+            </ion-item>
+            <button [disabled]="!authForm.valid" ion-button color="balanced" type="submit" full>Login</button>
+        </form>
+
+        <div class="forgot-password">
+            <a (click)="goToResetPassword()">Forgotten Password?</a>
+        </div>
+        <div class="forgot-password">
+            <a (click)="goToSignup()">Create a new account</a>
+        </div>
+    </div>
+</ion-content>

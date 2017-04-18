@@ -1,0 +1,47 @@
+page-results {
+    ion-slides {
+        height: inherit!important;
+    }
+    ion-avatar img {
+        max-width: 10.6rem!important;
+        max-height: 10.6rem!important;
+        border-radius: 5.8rem!important;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+    }
+    .center {
+        text-align: center;
+    }
+    .dateTime {
+        font-size: 1.1em;
+        color: #0C1D33;
+    }
+    ion-card-content {
+        background-color: #eeeeee;
+        padding-top: 15px!important;
+    }
+    .total {
+        font-size: 1.1em;
+        font-weight: bold;
+        color: #A3925F;
+    }
+    .total {
+        font-size: 1.0em;
+        font-weight: bold;
+        color: #0C1D33;
+    }
+    button.selected {
+        background-color: #A3925F;
+    }
+    .barberSelected img {
+        opacity: .8;
+    }
+    .profileEdit-user-avatar-caption {
+        text-align: center;
+        color: grey;
+        font-size: small;
+        padding-top: 5px;
+        margin-bottom: 10px;
+    }
+}

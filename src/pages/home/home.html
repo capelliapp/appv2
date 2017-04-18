@@ -19,7 +19,10 @@
     </div>
     <ion-list class="postcode">
       <ion-label color="primary" stacked>Search by postcode</ion-label>
-      <ion-input value="{{postcode}}" placeholder="Your postcode"></ion-input>  
-      <button class="homeSearch" ion-button full>Search</button>
+      <ion-input value="{{postcode}}" [(ngModel)]="postcode" placeholder="Your postcode"></ion-input>  
+      <p [hidden]="postcodeValid" danger padding-left>
+            Please enter a full, valid postcode
+        </p>
+      <button (click)="submitSearch()" class="homeSearch" ion-button full>Search</button>
   </ion-list>
 </ion-content>

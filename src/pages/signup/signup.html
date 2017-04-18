@@ -1,0 +1,49 @@
+<ion-content padding>
+    <form [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+        <ion-item>
+            <ion-label primary floating>Email *</ion-label>
+            <ion-input [class.invalid]="!email.valid && email.touched" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$" type="email" [formControl]="email"></ion-input>
+        </ion-item>
+
+        <div *ngIf="emailStatus==='invalid'" class="error-message">Not a valid email address</div>
+        <div *ngIf="emailStatus==='taken'" class="error-message">That email address is already in use</div>
+
+        <ion-item>
+            <ion-label primary floating>Forename *</ion-label>
+            <ion-input [class.invalid]="!forename.valid && forename.touched" type="text" [formControl]="forename"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label primary floating>Surname *</ion-label>
+            <ion-input [class.invalid]="!surname.valid && surname.touched" type="text" [formControl]="surname"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label primary floating>Mobile *</ion-label>
+            <ion-input [class.invalid]="!mobile.valid && mobile.touched" type="tel" [formControl]="mobile"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label primary floating>Password *</ion-label>
+            <ion-input [class.invalid]="!password.valid && password.touched" type="password" [formControl]="password"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label primary floating>Confirm password *</ion-label>
+            <ion-input [class.invalid]="!passwordConfirm.valid && password.touched" type="password" [formControl]="passwordConfirm"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label primary floating>Referral Code</ion-label>
+            <ion-input type="text" [formControl]="code"></ion-input>
+        </ion-item>
+
+
+        <div *ngIf="passwordConfirm.value != password.value && password.touched" class="error-message">Passwords do not match</div>
+
+        <button ion-button full color="balanced" [disabled]="!(accountForm.valid && password.value === passwordConfirm.value)" type="submit">Create account</button>
+    </form>
+    <div class="forgot-password">
+        <a (click)="goToLogin()">Cancel</a>
+    </div>
+
+</ion-content>
