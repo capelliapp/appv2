@@ -6,7 +6,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { Results } from '../pages/results/results';
-
+import { Login } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -21,6 +21,10 @@ import { CustomDatePipe } from '../providers/datePipe.pipe';
 import { FromNowPipe } from '../providers/fromNow.pipe';
 import { ToPricePipe, FillPipe, StatusPipe, BarberStatusPipe } from '../providers/pricePipe';
 import { BoolToString } from '../providers/paidPipe';
+import { Signup } from '../pages/signup/signup';
+import { ResetPassword } from '../pages/reset-password/reset-password';
+import { IntroPage } from '../pages/intro/intro';
+import { Storage } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -29,12 +33,17 @@ import { BoolToString } from '../providers/paidPipe';
     ListPage,
     Results,
     CustomDatePipe,
-        FromNowPipe,
-        ToPricePipe,
-        BoolToString,
-        FillPipe,
-        StatusPipe,
-        BarberStatusPipe,
+    FromNowPipe,
+    ToPricePipe,
+    BoolToString,
+    FillPipe,
+    StatusPipe,
+    BarberStatusPipe,
+    Login,
+    Signup,
+    ResetPassword,
+    IntroPage
+
   ],
   imports: [
     HttpModule,
@@ -47,13 +56,17 @@ import { BoolToString } from '../providers/paidPipe';
     HomePage,
     ListPage,
     Results,
+    Login,
+    Signup,
+    ResetPassword,
+    IntroPage
   ],
   providers: [
     StatusBar,
     CapelliApiService,
     DbStorage,
-    CapelliLocationService,
     Storage,
+    CapelliLocationService,
     SplashScreen,
     CapelliApiService,
     Geolocation,

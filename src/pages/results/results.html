@@ -3,7 +3,7 @@
         <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-        <ion-title>Book</ion-title>
+        <ion-title>Barbers</ion-title>
     </ion-navbar>
 </ion-header>
 <ion-content *ngIf="!barbers">
@@ -11,10 +11,8 @@
     <p> Don't worry, we are constantly looking to expand our areas covered, and we monitor searches to help us decide where to come next!</p>
 </ion-content>
 <ion-content *ngIf="barbers">
-    <div *ngFor="let barber of barbers; let index = index" class="center">
-        <ion-card>
-            <ion-item>
-                <div class="center">
+        <ion-list>
+            <ion-item *ngFor="let barber of barbers; let index = index" class="center">
                     <ion-avatar>
                         <a [class.barberSelected]="barberName === barber.barber_name" (click)="presentProfileModal(barber)">
                             <img src="{{ barber.user.avatar_image_url }}">
@@ -28,9 +26,8 @@
                     <ion-icon name="md-star"></ion-icon>
                     <ion-icon name="md-star"></ion-icon>
                     <ion-icon name="md-star"></ion-icon>
-                </div>
             </ion-item>
-            <ion-item *ngIf="barber.availability.data.length">
+            <!--<ion-item *ngIf="barber.availability.data.length">
                 <ion-scroll scrollX="true" style="width: 100%; height: 40px" class="item">
                     <button *ngFor="let slot of barber.availability.data" color="balanced" [class.selected]="slotStart === slot.start && barberName === barber.barber_name" (click)="selectTime(slot.start, slot.end, barber.barber_name, barber.calendar_id, barber)" ion-button
                         small>{{slot.start | customdate:"h:mm A" }}</button>
@@ -38,37 +35,7 @@
             </ion-item>
             <ion-item class="center" *ngIf="!barber.availability.data.length" text-wrap>
                 Unfortunatly this barber has no availability for today.
-            </ion-item>
-        </ion-card>
-        <img class="divider" src="assets/img/divider.png" />
-    </div>
+            </ion-item>-->
+            <img class="divider" src="assets/img/divider.png" />
+        </ion-list>
 </ion-content>
-<ion-footer *ngIf="barbers">
-    <ion-card>
-        <ion-card-content>
-            <ion-item>
-                <ion-row>
-                    <ion-col width-20>
-                        Barber Name:
-                    </ion-col>
-                    <ion-col width-80 align="right"><strong>{{barberName}}</strong>
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col width-20>
-                        Date &amp; Time:
-                    </ion-col>
-                    <ion-col width-80 align="right" *ngIf="slotStart != 'None Selected'"><strong>{{slotStart | customdate:"h:mm A" }} {{slotStart | customdate:"DD/MM/YY" }}</strong>
-                    </ion-col>
-                    <ion-col width-80 align="right" *ngIf="slotStart === 'None Selected'">None Selected
-                    </ion-col>
-                </ion-row>
-            </ion-item>
-        </ion-card-content>
-    </ion-card>
-    <ion-row>
-        <button (click)="navConfirm()" color="balanced" full ion-button>
-        Continue
-      </button>
-    </ion-row>
-</ion-footer>

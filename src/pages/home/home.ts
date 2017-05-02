@@ -1,12 +1,9 @@
-import { Subscribable } from 'rxjs/Observable';
-import { isTrueProperty } from 'ionic-angular/util/util';
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController, ModalController, LoadingController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Platform } from 'ionic-angular';
-import { HttpModule, Http, Response } from '@angular/http';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs/Rx';
 import { CapelliApiService } from '../../providers/capelli-api-service';
 import { Results } from '../results/results';
 
@@ -65,14 +62,11 @@ export class HomePage {
   }
 
   private validatePostcode() {
-    // Is postcode blank?
-   
       let url = 'https://api.postcodes.io/postcodes/' + this.postcode;
       this.http.get(url).map(res => res.json()).subscribe(data => {
         if(data.status === 200) {
           this.latitude = data.result.latitude;
           this.longitude = data.result.longitude;
-          this.postcodeValid = true;
           return this.postcodeValid = true;
         }
         else {
@@ -107,6 +101,7 @@ export class HomePage {
         });
         loading.present();
         try {
+          console.log(this.latitude, this.longitude);
             this._capelliApiService.getAvailableBarbers(this.latitude, this.longitude, null, null, 60, null).subscribe(
                 response => {
                     console.log(response);

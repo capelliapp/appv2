@@ -38569,15 +38569,6 @@ page-results ion-slides {
   height: inherit !important;
 }
 
-page-results ion-avatar img {
-  max-width: 10.6rem !important;
-  max-height: 10.6rem !important;
-  border-radius: 5.8rem !important;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 10px;
-}
-
 page-results .center {
   text-align: center;
 }
